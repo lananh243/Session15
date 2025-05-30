@@ -60,6 +60,12 @@
         <td>
             <a th:href="${'/product-delete/' + obj.id}">Delete</a>
             <a th:href="${'/product-detail/' + obj.id}">Chi tiết</a>
+            <form th:action="@{/add}" method="post">
+                <input type="hidden" name="productId" th:value="${obj.id}" />
+                <button type="submit" class="btn btn-success btn-sm">Thêm vào giỏ</button>
+            </form>
+
+
         </td>
     </tr>
     </tbody>

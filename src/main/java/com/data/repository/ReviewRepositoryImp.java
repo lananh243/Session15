@@ -41,14 +41,14 @@ public class ReviewRepositoryImp implements ReviewRepository {
         List<Review> reviews = new ArrayList<>();
         try {
             conn = ConnectionDB.openConnection();
-            callSt = conn.prepareCall("{call get_product_detail_by_review(?)}");
+            callSt = conn.prepareCall("{call get_reviews_by_product_id(?)}");
             callSt.setInt(1, idProduct);
             ResultSet rs = callSt.executeQuery();
-            if (rs.next()) {
+            while (rs.next()) {
                 Review review = new Review();
                 review.setId(rs.getInt("id"));
                 review.setIdProduct(rs.getInt("id_product"));
-                review.setIdUser(rs.getInt("idUser"));
+                review.setIdUser(rs.getInt("id_user"));
                 review.setRating(rs.getInt("rating"));
                 review.setComment(rs.getString("comment"));
                 reviews.add(review);

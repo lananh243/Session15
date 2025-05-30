@@ -104,7 +104,7 @@ public class ProductRepositoryImp implements ProductRepository {
         Product product = new Product();
         try {
             conn = ConnectionDB.openConnection();
-            callSt = conn.prepareCall("{call get_product_detail_by_review(?)}");
+            callSt = conn.prepareCall("{call get_product_by_id(?)}");
             callSt.setInt(1, id);
             ResultSet rs = callSt.executeQuery();
             if (rs.next()) {

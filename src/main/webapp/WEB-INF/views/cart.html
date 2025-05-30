@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2 class="mt-4">Giỏ hàng của bạn</h2>
+
+<table class="table table-bordered" border="1" cellpadding="10" cellspacing="0">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Mã sản phẩm</th>
+        <th>Số lượng</th>
+        <th>Tổng</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${carts}">
+        <td th:text="${item.idCart}">1</td>
+        <td th:text="${item.idProduct}"></td>
+        <td th:text="${item.quantity}">1</td>
+        <td th:text="${item.total}">1000</td>
+    </tr>
+    </tbody>
+</table>
+
+<h4>Tổng tiền: <span style="color:red;" th:text="${total}">0</span> VND</h4>
+
+<a th:href="@{/list-product}" class="btn btn-primary">Tiếp tục mua sắm</a>
+</body>
+</html>
