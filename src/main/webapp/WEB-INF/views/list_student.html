@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/WEB-INF/css/bootstrap.min.css">
+    <script src="/WEB-INF/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h3>List Student</h3>
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Student Name</th>
+            <th>Age</th>
+            <th>Class</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="obj, loop : ${students}">
+            <td th:text="${obj.id}"></td>
+            <td th:text="${obj.name}"></td>
+            <td th:text="${obj.age}"></td>
+            <td th:text="${obj.classStd}"></td>
+            <td th:text="${obj.email}"></td>
+            <td th:text="${obj.address}"></td>
+            <td th:text="${obj.phone}"></td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

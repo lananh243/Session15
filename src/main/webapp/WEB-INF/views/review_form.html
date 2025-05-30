@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Gửi đánh giá sản phẩm</h2>
+<form th:action="@{/review-save}" method="post" th:object="${reviewDTO}">
+
+    <!-- Dropdown chọn sản phẩm -->
+    <div class="form-group">
+        <label>--- Chọn sản phẩm ---</label>
+        <select th:field="*{idProduct}" class="form-control">
+            <option th:each="product : ${products}"
+                    th:value="${product.id}"
+                    th:text="${product.productName}">
+            </option>
+        </select>
+    </div>
+    <br><br>
+    <!-- Dropdown chọn người dùng -->
+    <div class="form-group">
+        <label>--- Chọn người dùng ---</label>
+        <select th:field="*{idUser}" class="form-control">
+            <option th:each="user : ${users}"
+                    th:value="${user.id}"
+                    th:text="${user.username}">
+            </option>
+        </select>
+
+    </div>
+
+    <br><br>
+    <!-- Rating -->
+    <div class="form-group">
+        <label>Đánh giá (Rating):</label>
+        <select th:field="*{rating}" class="form-control" required>
+            <option th:value="1">1 sao</option>
+            <option th:value="2">2 sao</option>
+            <option th:value="3">3 sao</option>
+            <option th:value="4">4 sao</option>
+            <option th:value="5">5 sao</option>
+        </select>
+    </div>
+    <br><br>
+    <!-- Comment -->
+    <div class="form-group">
+        <label>Bình luận:</label>
+        <textarea th:field="*{comment}" class="form-control" rows="3" placeholder="Nhập bình luận..."></textarea>
+    </div>
+    <br><br>
+    <button type="submit" class="btn btn-primary mt-2">Gửi đánh giá</button>
+</form>
+</body>
+</html>

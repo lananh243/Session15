@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2 th:text="${product.productName}"></h2>
+    <p>Price: <span th:text="${product.price}"></span></p>
+
+    <h4>Đánh giá sản phẩm</h4>
+    <ul>
+        <li th:each="review : ${reviews}">
+            <strong th:text="${review.rating}">5</strong> sao -
+            <span th:text="${review.comment}">Rất tốt</span>
+        </li>
+    </ul>
+
+    <a href="/review-form">Viết đánh giá mới</a>
+</body>
+</html>
